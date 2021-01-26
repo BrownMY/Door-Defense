@@ -8,93 +8,236 @@ const livesClass = document.querySelector('.lives')
 const enemyBear = document.getElementById('bearimg')
 const cityScene = document.getElementsByClassName('citybg')
 const roundP = document.getElementById('round')
-
+let lives = 5
 console.log(enemyBear.style)
 
 const gameObj = {
 
     round1: function(){
         let time = 10
-        let lives = 5
         roundP.innerText = 'Round One'
-
-        let enemyMovement = function() {
+        
+        const timer = setInterval(function(){
             time--
             timerP.innerText = 'Time: ' + time + ' sec'
-            let vertMove = Math.floor(Math.random()*150)
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
             let horMove = Math.floor(Math.random()*800)
-           // console.log(vertMove)
-           //console.log(horMove)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        }
+        },1500)
         
-        const timer = setInterval(enemyMovement
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
             
-        //     let vertMove = Math.floor(Math.random()*150)
-        //     let horMove = Math.floor(Math.random()*800)
-        //    // console.log(vertMove)
-        //    //console.log(horMove)
-        //     enemyBear.style.top = vertMove + 'px'
-        //     enemyBear.style.left = horMove + 'px'
-        ,1500)
-        if (time === 0) {
-            clearInterval(enemyMovement())
-        }
+        })                                                               
     },
 
-    round2: null,
-    round3: null,
-    round4: null,
-    round5: null,
-    round6: null,
-    round7: null,
-    round8: null,
-    round9: null,
-    round10: null
+    round2: function(){
+        let time = 10
+        roundP.innerText = 'Round Two'
+        
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec' 
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+        },1300)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round3: function(){
+        let time = 10
+        roundP.innerText = 'Round Three'
+        
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'  
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+        },1000)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round4: function(){
+        let time = 10
+        roundP.innerText = 'Round Four'
+
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+        
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+        },800)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round5: function(){
+        let time = 10
+        roundP.innerText = 'Round Five'
+
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+        
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round6: function(){
+        let time = 10
+        roundP.innerText = 'Round Six'
+        
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            enemyBear.style.height = '80px'
+            enemyBear.style.width = '80px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round7: function(){
+        let time = 10
+        roundP.innerText = 'Round Seven'
+        
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            enemyBear.style.height = '80px'
+            enemyBear.style.width = '80px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round8: function(){
+        let time = 10
+        roundP.innerText = 'Round Eight'
+
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec' 
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            enemyBear.style.height = '80px'
+            enemyBear.style.width = '80px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round9: function(){
+        let time = 10
+        roundP.innerText = 'Round Nine'
+
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+        
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            enemyBear.style.height = '80px'
+            enemyBear.style.width = '80px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    },
+    round10: function(){
+        let time = 10
+        roundP.innerText = 'Round Ten'
+
+        const timer = setInterval(function(){
+            time--
+            timerP.innerText = 'Time: ' + time + ' sec'
+        },1000)
+
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*550)
+            let horMove = Math.floor(Math.random()*800)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            enemyBear.style.height = '80px'
+            enemyBear.style.width = '80px'
+        },600)
+        
+        
+        enemyBear.addEventListener('click', function(){
+            clearInterval(enemyMovement)
+        })                                                               
+    }
 
 }
-gameObj.round1()
+gameObj.round5()
 
-//const game = function() {
-    //
-     
-    // let time = 10
-    // let lives = 5
-
-    // setInterval(function(){
-    // time--
-    // timerP.innerText = 'Time: ' + time + ' sec'
-    // let vertMove = Math.floor(Math.random()*180)
-    // let horMove = Math.floor(Math.random()*800)
-    // console.log(vertMove)
-    // console.log(horMove)
-    // enemyBear.style.top = vertMove.toString
-    //     enemyBear.style.marginLeft = horMove.toString
-
-    // },1000) 
-
-
-
-   
-    
-
-
-
-
-    
-//}
-
-
-// enemyBear.addEventListener('click', function(e) {
-//    e.target.
-// })
-
-
-// enemyBear.addEventListener('click', function() {
-//     enemyBear.style.top = '2000px'
-// })
-
-
-//}
-//game()

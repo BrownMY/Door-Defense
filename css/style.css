@@ -1,4 +1,8 @@
+* {
+    box-sizing: border-box;
+}
 body {
+
     background-color: #c9f0f2;
     display: flex;
     justify-content: flex-start;
@@ -6,23 +10,26 @@ body {
     align-items: center;
 }
 
-main {
-    display:grid; 
-    width: 700px;
-    height: 600px;
-}
-
 #timer {
-  position: relative;
-  left: 50px;
+  position: absolute;
+  left: 250px;
+  top: 80px;
+  font-size: 25px;
  
 }
 
 .lives {
-    display: flex;
-    align-items: flex-start;
-    padding: 5px;
+  position: absolute;
+  right: 250px;
+  top: 100px;
+  font-size: 25px;
+    
 
+}
+#round {
+    font-size: 30px;
+    padding: 5px;
+    margin-top: -10px;
 }
 
 /* .script {
@@ -34,27 +41,47 @@ main {
  
 } */
 
-img {
+.citybg {
     position: absolute;
     margin: 0 auto;
     z-index: -2;
-    height: 600px;
-    width: 900px;
+    height: 700px;
+    width: 1200px;
+    top: 0;
+    left: 200px;
 }
 
-/* .store {
-pos
-} */
+.store {
+position: relative;
+z-index: -1;
+height: 400px;
+width: 500px;
+left: 210px;
+bottom: -47px;
+} 
+
+#street {
+position: absolute;
+height: 110px;
+width:1200px;
+margin: 0 auto;
+z-index: -1;
+bottom: 70px;
+left: 200px;
+background-color: rgba(105,108,116,1);
+}
+
 #bearimg {
      position: relative;
      width: 90px;
      height: 90px;
+     z-index: 1;
 }
 
 .bear {
-    position: absolute;
-    width: 90px;
-    height: 90px;
   
+    width: 170px;
+    height: 170px;
+    
 }
 
