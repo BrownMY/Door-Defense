@@ -8,46 +8,51 @@ const livesClass = document.querySelector('.lives')
 const enemyBear = document.getElementById('bearimg')
 const cityScene = document.getElementsByClassName('citybg')
 const roundP = document.getElementById('round')
+const winner = document.getElementById('win')
+const lose = document.getElementById('lose')
 let lives = 5
 console.log(enemyBear.style)
 
 const gameObj = {
-
+    time: 10,
     round1: function(){
-        let time = 10
+        
         roundP.innerText = 'Round One'
         
         const timer = setInterval(function(){
-            time--
-            timerP.innerText = 'Time: ' + time + ' sec'
+            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
+            gameObj.time--
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1500)
+        },1000)
         
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round2()
             
         })                                                               
     },
 
     round2: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Two'
         
         const timer = setInterval(function(){
-            time--
-            timerP.innerText = 'Time: ' + time + ' sec' 
+            gameObj.time--
+            timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
         },1300)
@@ -55,10 +60,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round3()
         })                                                               
     },
     round3: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Three'
         
         const timer = setInterval(function(){
@@ -69,8 +77,8 @@ const gameObj = {
         const enemyMovement = setInterval(function(){
             time--
             timerP.innerText = 'Time: ' + time + ' sec'
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
         },1000)
@@ -78,10 +86,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round4()
         })                                                               
     },
     round4: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Four'
 
         const timer = setInterval(function(){
@@ -90,8 +101,8 @@ const gameObj = {
         },1000)
         
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
         },800)
@@ -99,10 +110,14 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round5()
         })                                                               
     },
     round5: function(){
-        let time = 10
+        this.time = 10
+        lives ++
         roundP.innerText = 'Round Five'
 
         const timer = setInterval(function(){
@@ -111,8 +126,8 @@ const gameObj = {
         },1000)
         
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
         },600)
@@ -120,10 +135,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round6()
         })                                                               
     },
     round6: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Six'
         
         const timer = setInterval(function(){
@@ -132,8 +150,8 @@ const gameObj = {
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
@@ -143,10 +161,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round7()
         })                                                               
     },
     round7: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Seven'
         
         const timer = setInterval(function(){
@@ -155,8 +176,8 @@ const gameObj = {
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
@@ -166,10 +187,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round8()
         })                                                               
     },
     round8: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Eight'
 
         const timer = setInterval(function(){
@@ -178,8 +202,8 @@ const gameObj = {
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
@@ -189,10 +213,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round9()
         })                                                               
     },
     round9: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Nine'
 
         const timer = setInterval(function(){
@@ -201,8 +228,8 @@ const gameObj = {
         },1000)
         
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
@@ -212,10 +239,13 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            gameObj.round10()
         })                                                               
     },
     round10: function(){
-        let time = 10
+        this.time = 10
         roundP.innerText = 'Round Ten'
 
         const timer = setInterval(function(){
@@ -224,8 +254,8 @@ const gameObj = {
         },1000)
 
         const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*550)
-            let horMove = Math.floor(Math.random()*800)
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
@@ -235,9 +265,12 @@ const gameObj = {
         
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
+            clearInterval(timer)
+            
+            winner.innerText = "YOU WIN!"
         })                                                               
     }
 
 }
-gameObj.round5()
+gameObj.round1()
 

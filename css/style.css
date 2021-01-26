@@ -10,6 +10,11 @@ body {
     align-items: center;
 }
 
+main {
+    width: 1150px;
+    height: 550px;
+}
+
 #timer {
   position: absolute;
   left: 250px;
@@ -42,6 +47,7 @@ body {
 } */
 
 .citybg {
+    
     position: absolute;
     margin: 0 auto;
     z-index: -2;
@@ -56,8 +62,8 @@ position: relative;
 z-index: -1;
 height: 400px;
 width: 500px;
-left: 210px;
-bottom: -47px;
+left: 510px;
+bottom: 25px;
 } 
 
 #street {
@@ -66,7 +72,7 @@ height: 110px;
 width:1200px;
 margin: 0 auto;
 z-index: -1;
-bottom: 70px;
+bottom: 68px;
 left: 200px;
 background-color: rgba(105,108,116,1);
 }
