@@ -6,21 +6,23 @@ const enemy2P = document.getElementById('enemy2')
 const script = document.querySelector('.scriptbubble')
 const livesClass = document.querySelector('.lives')
 const enemyBear = document.getElementById('bearimg')
-const cityScene = document.getElementsByClassName('citybg')
 const roundP = document.getElementById('round')
 const winner = document.getElementById('win')
-const lose = document.getElementById('lose')
+const loser = document.getElementById('lose')
 const startButton = document.querySelector('button')
-let lives = 5
 
 
 
+
+enemyBear.style.opacity = 0
 
 //function gameStart () {
 const gameObj = {
     time: 10,
+    click: false,
+    lives: 5,
     round1: function(){
-        
+        enemyBear.style.opacity = 1
         roundP.innerText = 'Round One'
         
         const timer = setInterval(function(){
@@ -35,12 +37,14 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
         },1600)
         
-        
+        livesClass.innerText = "Lives: " + gameObj.lives
+
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round2()
+            
             
         })                                                               
     },
@@ -65,7 +69,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round3()
         })                                                               
     },
@@ -91,7 +95,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round4()
         })                                                               
     },
@@ -115,7 +119,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round5()
         })                                                               
     },
@@ -140,7 +144,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round6()
         })                                                               
     },
@@ -166,7 +170,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round7()
         })                                                               
     },
@@ -192,7 +196,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round8()
         })                                                               
     },
@@ -218,7 +222,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round9()
         })                                                               
     },
@@ -244,7 +248,7 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             gameObj.round10()
         })                                                               
     },
@@ -270,11 +274,16 @@ const gameObj = {
         enemyBear.addEventListener('click', function(){
             clearInterval(enemyMovement)
             clearInterval(timer)
-            
+            gameObj.click = true
             winner.innerText = "YOU WIN!"
-        })                                                               
+        })  
+                                                                     
+    
     }
 }
+// if (time === 0 && gameObj.click === false) {
+//            gameObj.lives--
+//        }
 
-gameObj.round1()
+startButton.addEventListener('click', gameObj.round1)
 //}
