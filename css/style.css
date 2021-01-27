@@ -13,6 +13,19 @@ body {
 main {
     width: 1150px;
     height: 550px;
+    margin-top: -170px;
+}
+
+h1 {
+color: #f79d43;
+font-size: 50px;
+margin-top: 5px;
+}
+
+button {
+position: relative;
+
+
 }
 
 #timer {
@@ -20,6 +33,7 @@ main {
   left: 250px;
   top: 80px;
   font-size: 25px;
+  color: #dbfffa;
  
 }
 
@@ -28,13 +42,22 @@ main {
   right: 250px;
   top: 100px;
   font-size: 25px;
+  color: #dbfffa;
     
 
 }
 #round {
-    font-size: 30px;
+    font-size: 35px;
+    color: #dbfffa;
     padding: 5px;
     margin-top: -10px;
+}
+
+#win {
+    font-size: 60px;
+    margin-top: -10px;
+    z-index: 2;
+    color: #dbfffa;
 }
 
 /* .script {
@@ -63,7 +86,7 @@ z-index: -1;
 height: 400px;
 width: 500px;
 left: 510px;
-bottom: 25px;
+bottom: -95px;
 } 
 
 #street {

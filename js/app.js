@@ -10,9 +10,13 @@ const cityScene = document.getElementsByClassName('citybg')
 const roundP = document.getElementById('round')
 const winner = document.getElementById('win')
 const lose = document.getElementById('lose')
+const startButton = document.querySelector('button')
 let lives = 5
-console.log(enemyBear.style)
 
+
+
+
+//function gameStart () {
 const gameObj = {
     time: 10,
     round1: function(){
@@ -29,7 +33,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1000)
+        },1600)
         
         
         enemyBear.addEventListener('click', function(){
@@ -55,7 +59,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1300)
+        },1500)
         
         
         enemyBear.addEventListener('click', function(){
@@ -81,7 +85,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1000)
+        },1400)
         
         
         enemyBear.addEventListener('click', function(){
@@ -105,7 +109,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },800)
+        },1300)
         
         
         enemyBear.addEventListener('click', function(){
@@ -130,7 +134,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*900)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },600)
+        },1200)
         
         
         enemyBear.addEventListener('click', function(){
@@ -156,7 +160,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
             enemyBear.style.width = '80px'
-        },600)
+        },1100)
         
         
         enemyBear.addEventListener('click', function(){
@@ -182,7 +186,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
             enemyBear.style.width = '80px'
-        },600)
+        },1050)
         
         
         enemyBear.addEventListener('click', function(){
@@ -208,7 +212,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
             enemyBear.style.width = '80px'
-        },600)
+        },950)
         
         
         enemyBear.addEventListener('click', function(){
@@ -234,7 +238,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
             enemyBear.style.width = '80px'
-        },600)
+        },900)
         
         
         enemyBear.addEventListener('click', function(){
@@ -260,7 +264,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             enemyBear.style.height = '80px'
             enemyBear.style.width = '80px'
-        },600)
+        },750)
         
         
         enemyBear.addEventListener('click', function(){
@@ -270,7 +274,7 @@ const gameObj = {
             winner.innerText = "YOU WIN!"
         })                                                               
     }
-
 }
-gameObj.round1()
 
+gameObj.round1()
+//}
