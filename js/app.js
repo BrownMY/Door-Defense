@@ -7,10 +7,12 @@ const script = document.querySelector('.scriptbubble')
 const livesClass = document.querySelector('.lives')
 const enemyBear = document.getElementById('bearimg')
 const bearImg = document.querySelector('.bear')
+const maskImg = document.querySelector('.mask')
 const roundP = document.getElementById('round')
 const winner = document.getElementById('win')
 const loser = document.getElementById('lose')
 const startButton = document.querySelector('button')
+
 
 
 
@@ -27,14 +29,15 @@ const gameObj = {
         enemyBear.style.opacity = 1
         startButton.style.display = 'none'
         roundP.innerText = 'Round One'
+        livesClass.innerText = "Lives: " + gameObj.lives
         
         const timer = setInterval(function(){
 
             timerP.innerText = 'Time: ' + gameObj.time + ' sec'
             gameObj.time--
-
+            
         },1000)
-
+     
         const enemyMovement = setInterval(function(){
 
             let vertMove = Math.floor(Math.random()*350)
@@ -44,14 +47,22 @@ const gameObj = {
 
         },1400)
         
-        livesClass.innerText = "Lives: " + gameObj.lives
+           
+        // if (gameObj.time <= 0) {
+        //         gameObj.lives--
+        //         livesClass.innerText = "Lives: " + gameObj.lives
+        //         gameObj.round1()
+        //     }
+        
+        
+
 
         enemyBear.addEventListener('click', function clickFunc(){
             clearInterval(enemyMovement)
             clearInterval(timer)
             gameObj.click = true
-            gameObj.round2()
-            
+            maskImg.style.opacity = 1
+            gameObj.round2()     
             enemyBear.removeEventListener('click', clickFunc)
         })                                                               
     },
@@ -59,14 +70,14 @@ const gameObj = {
     round2: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Two'
-        
+        //maskImg.style.opacity = 0
         const timer = setInterval(function(){
 
             timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
             gameObj.time--
 
         },1000)
-
+        
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
             let horMove = Math.floor(Math.random()*900)
@@ -79,6 +90,7 @@ const gameObj = {
             clearInterval(enemyMovement)
             clearInterval(timer)
             gameObj.click = true
+            maskImg.style.opacity = 1
             gameObj.round3()
             enemyBear.removeEventListener('click', clickFunc)
         })                                                               
@@ -169,6 +181,7 @@ const gameObj = {
     round6: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Six'
+        maskImg.classList.toggle('masknewstyle')
         
         const timer = setInterval(function(){
             
@@ -184,6 +197,7 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
+            
 
         },1000)
         
@@ -199,6 +213,7 @@ const gameObj = {
     round7: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Seven'
+        maskImg.classList.toggle('masknewstyle')
         
         const timer = setInterval(function(){
            
@@ -214,6 +229,8 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
+            maskImg.style.height = '80px'
+            maskImg.style.width = '80px'
         },950)
         
         
@@ -228,6 +245,7 @@ const gameObj = {
     round8: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Eight'
+        maskImg.classList.toggle('masknewstyle')
 
         const timer = setInterval(function(){
             
@@ -243,6 +261,8 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
+            maskImg.style.height = '80px'
+            maskImg.style.width = '80px'
         },850)
         
         
@@ -257,6 +277,7 @@ const gameObj = {
     round9: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Nine'
+        maskImg.classList.toggle('masknewstyle')
 
         const timer = setInterval(function(){
             
@@ -286,6 +307,7 @@ const gameObj = {
     round10: function(){
         gameObj.time = 10
         roundP.innerText = 'Round Ten'
+        maskImg.classList.toggle('masknewstyle')
 
         const timer = setInterval(function(){
             
@@ -301,6 +323,9 @@ const gameObj = {
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
+            maskImg.style.height = '80px'
+            maskImg.style.width = '80px'
+            
         },650)
         
         
@@ -308,28 +333,31 @@ const gameObj = {
             clearInterval(enemyMovement)
             clearInterval(timer)
             gameObj.click = true
-            winner.innerText = "YOU WIN!"
+            gameObj.win()
         })  
                                                                      
     
     },
-    // win: const enemyMovement = setInterval(function(){
-    //         let vertMove = Math.floor(Math.random()*350)
-    //         let horMove = Math.floor(Math.random()*900)
-    //         enemyBear.style.top = vertMove + 'px'
-    //         enemyBear.style.left = horMove + 'px'
-    //         bearImg.style.height = '80px'
-    //         bearImg.style.width = '80px'
-    //     },650)
-    //     enemyBear.addEventListener('click', function(){
+    win: function() {
+
+        timerP.innerText = 'Time: 🎊'
+        maskImg.classList.toggle('mask')
+    
+        const enemyMovement = setInterval(function(){
+            let vertMove = Math.floor(Math.random()*350)
+            let horMove = Math.floor(Math.random()*900)
+            enemyBear.style.top = vertMove + 'px'
+            enemyBear.style.left = horMove + 'px'
+            bearImg.style.height = '180px'
+            bearImg.style.width = '180px'
+        },150)
             
-    //         winner.innerText = "YOU WIN!"
+            winner.innerText = "YOU WIN!"
           
-        //})
+        }
     }
-// if (time === 0 && gameObj.click === false) {
-//            gameObj.lives--
-//        }
+    
+
 
 startButton.addEventListener('click', gameObj.round1)
 
