@@ -6,7 +6,8 @@
     <title>DOOR DEFENSE</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/app.js"></script>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
 
 <body>     
@@ -14,24 +15,43 @@
     <p id="round"></p>
     <p id='win'></p>
     <p id='lose'></p>
+
     <main>
-        <button>Start</button>
+        
+        <section class='gameboard'>
+            <p id="timer">Time: </p>
+            <section class="lives">Lives: </section>
+            <div id="bearimg">
+            <img class="bear" src="Photos/angry bear.png" />
+            <img class="mask" src="Photos/Face mask.webp" />
+            </div>
+            <img class="store" src="Photos/supermarket-2011060_1280.png" />
+            <img class="citybg" src="Photos/city skyline.png" />
+            <div id="street"></div>
+            <div id="streetlines"></div>
+        </section>
         <section class="script">
-            <p id="you1"></p>
-            <p id="enemy1"></p>
-            <p id="you2"></p>
-            <p id="enemy2"></p>
-        </section>   
-        <div class="scriptbubble"></div>
-        <p id="timer">Time: </p>
-        <section class="lives">Lives: </section>
-        <img class="citybg" src="Photos/city skyline.png" />
-        <div id="street"></div>
-        <div id="bearimg">
-        <img class="bear" src="Photos/angry bear.png" />
-        <img class="mask" src="Photos/Face mask.webp" />
+
+            <p id="you1">You: Hey there! Welcome to Generick's Food Market!</p>
+            <p id="enemy1">???: I'M HERE TO WALK AROUND AND LOOK AT STUFF. <br/> *droplets fly everywhere*</p>
+            <p id="you2">You: Okay! No problem! I noticed you're not wearing a mask. It's required for entry. As soon as you put one on, I can let you in to start shopping!</p>
+            <p id="enemy2">???: "MASK? THAT'S A HIPPA VIOLATIIOONNNN!!!!!!!!!"</p>
+            <p id="directions">Directions: <br /> Get the Anti-masker to put on a mask before they get through the door!s You've only got 10 seconds and 3 lives! </p>
+            <p id='ready'>Get Ready...<p>
+
+        </section> 
+
+        <button id='start'>Start</button>
+        <button id='restart'>Restart</button>
+        <button id='ok'>Ok...</button>
+        <button id='ok2'>What the...</button>
+        <button id='ok3'>Ok</button>
+        
+        <div id="sanitizerdiv">
+            <img class="handsani" src="https://media3.giphy.com/media/iJP9UtHicBlvs9rR5Y/giphy.gif" />
         </div>
-        <img class="store" src="Photos/supermarket-2011060_1280.png" />
+         
+        
     </main>
 
 </body>

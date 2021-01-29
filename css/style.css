@@ -2,49 +2,79 @@
     box-sizing: border-box;
 }
 body {
-
-    background-color: #c9f0f2;
     position: relative;
+    background-color: #c9f0f2;
+    font-family: 'Press Start 2P', cursive;
     margin: 0 auto;
     text-align: center;
 }
 
-main {
+/* main {
     width: 1150px;
     height: 550px;
     margin: 0 auto;
     text-align: center;
-}
+} */
+
 
 h1 {
-    /* Gif as font color */
-color: #f79d43;
-font-size: 50px;
-margin: 0 auto;
-padding: 10px;
+  
+    color: #f79d43;
+    font-size: 50px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 button {
-    /* gradient graphic */
-position: relative;
-margin: 0 auto;
-margin-top: 15%;
-z-index: 1;
-height: 50px;
-width: 100px;
-font-size: 30px;
-background-color: orange;
-border: 2px solid red;
-border-radius: 25px;
 
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    color:white;
+    font-size: 20px;
+    /* margin: 0 auto; */
+    padding: 15px;
+    z-index: 1;
+    left: 700px;
+    top: 600px;
+    background-color: orange;
+    border: 2px solid red;
+    border-radius: 25px;
 
+}
 
+.gameboard {
+    margin: 0 auto;
+    text-align: center;
+    margin-top:-140px;
+    background-color: red;
+}
+
+.citybg {
+    
+    position: absolute;
+    margin: 0 auto;
+    z-index: -2;
+    height: 700px;
+    width: 1200px;
+    top: 0;
+    left: 200px;
+}
+
+#sanitizerdiv {
+    position: absolute;
+    top: 260px;
+    left: 600px;
+}
+
+.handsani {
+    height: 250px;
+    width: 350px;
 }
 
 #timer {
   position: absolute;
-  left: 250px;
-  top: 80px;
+  left: 170px;
+  top: 25px;
   font-size: 25px;
   color: #dbfffa;
  
@@ -73,6 +103,13 @@ border-radius: 25px;
     color: #dbfffa;
 }
 
+#lose {
+    font-size: 30px;
+    color: white;
+    margin: 0 auto; 
+    margin-top: 200px;
+    width: 700px;
+}
 /* .script {
  background-color: azure;
  position: relative;
@@ -82,54 +119,67 @@ border-radius: 25px;
  
 } */
 
-.citybg {
-    
-    position: absolute;
-    margin: 0 auto;
-    z-index: -2;
-    height: 700px;
-    width: 1200px;
-    top: 0;
-    left: 200px;
-}
-
 .store {
-position: relative;
-z-index: -1;
-height: 400px;
-width: 500px;
-left: 510px;
-bottom: -95px;
+    position: absolute;
+    z-index: -1;
+    height: 400px;
+    width: 500px;
+    left: 795px;
+    bottom: -225px;
 } 
 
-#street {
-position: absolute;
-height: 110px;
-width:1200px;
-margin: 0 auto;
-z-index: -1;
-bottom: 68px;
-left: 200px;
-background-color: rgba(105,108,116,1);
+#streetlines {
+    position: absolute;
+    letter-spacing: 20px;
+    top: 660px;
+    right: 210px;
+    width: 1180px;
+    border-bottom: 8px dashed white;
+    z-index: 3;
 }
 
+#street {
+    position: absolute;
+    height: 110px;
+    width:1200px;
+    margin: 0 auto;
+    z-index: -1;
+    bottom: -225px;
+    left: 200px;
+    background-color: rgba(105,108,116,1);
+}
+
+.script {
+    color: white;
+    position: absolute;
+    width: 1000px;
+    top: 150px;
+    left: 280px;
+}
+
+
+ p {
+     padding: 50px;
+ }
+
 #bearimg {
-     position: relative;
+     position: absolute;
      width: 90px;
      height: 90px;
      z-index: 1;
 }
 
 .bear {
+    position: absolute;
     width: 170px;
     height: 170px;
     
 }
 
 .mask {
-    position: relative;
-    top: -145px;
-    left: 10px;
+    position: absolute;
+    top: 34px;
+    left: 30px;
     width: 150px;
     height: 150px;
     opacity: 0;
@@ -137,21 +187,11 @@ background-color: rgba(105,108,116,1);
 
 .masknewstyle {
     margin: 0 auto;
-    position: relative;
-    top: -70px;
+    position: absolute;
+    top: 0px;
     left: 0px;
     width: 70px;
     height: 70px;
     opacity: 0;
 
 }
-/* 
-.mask {
-    position: relative;
-    top: -70px;
-    left: 0px;
-    width: 70px; 
-    height: 70px;
-    opacity: 0;
-
-} */
