@@ -73,7 +73,7 @@ const gameObj = {
           
             setTimeout(function next() {
             saniButton.style.display = 'block'
-             },3000)
+             },2000)
         })          
         
         })
@@ -148,7 +148,8 @@ const gameObj = {
         const timer = setInterval(function(){
 
             timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
-            
+            //Timer?? console.log(`Round 2  Timer - ${gameObj.time}`)
+            //console.log('Round 1 Timer ${}')
             if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
                 
                 gameObj.gameOver()
@@ -160,6 +161,7 @@ const gameObj = {
                 clearInterval(timer)
                 clearInterval(enemyMovement)
                 gameObj.round1()
+
             } else {
                 gameObj.time--
             }

@@ -44,8 +44,8 @@ button {
 
 .gameboard {
     margin: 0 auto;
-    text-align: center;
-    margin-top:-140px;
+    margin-top:-190px;
+    margin-left: 80px;
     background-color: red;
 }
 
@@ -150,7 +150,7 @@ button {
 }
 
 .script {
-    color: white;
+    color:black;
     position: absolute;
     width: 1000px;
     top: 150px;
@@ -179,7 +179,7 @@ button {
 .mask {
     position: absolute;
     top: 34px;
-    left: 30px;
+    left: 55px;
     width: 150px;
     height: 150px;
     opacity: 0;
