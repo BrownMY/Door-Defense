@@ -6,7 +6,7 @@ const you1P = document.getElementById('you1')
 const enemy1P = document.getElementById('enemy1')
 const you2P = document.getElementById('you2')
 const enemy2P = document.getElementById('enemy2')
-const script = document.querySelector('.scriptbubble')
+const script = document.querySelector('.script')
 const livesClass = document.querySelector('.lives')
 const enemyBear = document.getElementById('bearimg')
 const bearImg = document.querySelector('.bear')
@@ -33,6 +33,7 @@ saniButton.style.display = 'none'
 getReady.style.display = 'none'
 okButton2.style.display = 'none'
 okButton3.style.display = 'none'
+script.style.display = 'none'
 
 const gameObj = {
     time: 10,
@@ -42,6 +43,7 @@ const gameObj = {
     script: function () {
         start.style.display = 'none'
         you1P.style.display = 'block'
+        script.style.display = 'block'
         setTimeout(function next() {
             enemy1P.style.display = 'block'
         },3000) 
@@ -67,6 +69,7 @@ const gameObj = {
             enemy2P.style.display = 'none'
         })
         okButton3.addEventListener('click', function(){
+            script.style.backgroundColor = 'none'
             okButton3.style.display = 'none'
             getReady.style.display = 'block'
             directionsP.style.display = 'none'
@@ -86,12 +89,12 @@ const gameObj = {
         roundP.innerText = 'Round One'
         livesClass.innerText = "Lives: " + gameObj.lives
         restart.style.display = 'none'
+        script.style.display = 'none'
 
         
         const enemyMovement = setInterval(function(){
-
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
 
@@ -102,12 +105,9 @@ const gameObj = {
             timerP.innerText = 'Time: ' + gameObj.time + ' sec'
              
             if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
-                
-                gameObj.gameOver()
+                gameObj.gameOver()       
 
-                
             }else if (gameObj.time === 0 && gameObj.click === false && gameObj.lives !== 0) {
-                
                 gameObj.lives--
                 livesClass.innerText = "Lives: " + gameObj.lives
                 gameObj.round1()
@@ -139,10 +139,10 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1100)
+        },1000)
         
 
         const timer = setInterval(function(){
@@ -151,11 +151,9 @@ const gameObj = {
             //Timer?? console.log(`Round 2  Timer - ${gameObj.time}`)
             //console.log('Round 1 Timer ${}')
             if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
-                
                 gameObj.gameOver()
 
             }else if (gameObj.time === 0 && gameObj.click === false) {
-                
                 gameObj.lives--
                 livesClass.innerText = "Lives: " + gameObj.lives
                 clearInterval(timer)
@@ -191,10 +189,10 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },1050)
+        },900)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -218,11 +216,11 @@ const gameObj = {
             timerP.innerText = 'Time: ' + gameObj.time + ' sec'
             gameObj.time--
 
-        },1000)
+        },850)
         
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
         },1000)
@@ -253,10 +251,10 @@ const gameObj = {
         
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-        },950)
+        },800)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -284,14 +282,14 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
             
 
-        },900)
+        },800)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -319,14 +317,14 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
             maskImg.style.height = '80px'
             maskImg.style.width = '80px'
-        },850)
+        },750)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -354,14 +352,14 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
             maskImg.style.height = '80px'
             maskImg.style.width = '80px'
-        },800)
+        },600)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -389,12 +387,12 @@ const gameObj = {
         
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
             bearImg.style.width = '80px'
-        },700)
+        },600)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -422,7 +420,7 @@ const gameObj = {
 
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1000)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '80px'
@@ -430,7 +428,7 @@ const gameObj = {
             maskImg.style.height = '80px'
             maskImg.style.width = '80px'
             
-        },600)
+        },550)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -454,7 +452,7 @@ const gameObj = {
     
         const enemyMovement = setInterval(function(){
             let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*900)
+            let horMove = Math.floor(Math.random()*1100)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
             bearImg.style.height = '180px'
@@ -488,4 +486,22 @@ restart.addEventListener('click', function() {
     restart.style.display = 'none'
     gameObj.script})
 
-//}
+
+
+// const typeFunc = function(words){
+//     const wordsTyped = words.split('')
+
+// for (let i = 0; i < wordsTyped.length; i++) {
+//       setInterval(function(){
+//           console.log(wordsTyped[i])
+//       }, 100);
+//   }
+// }
+
+  
+// typeFunc('Hello there!')
+
+
+
+
+

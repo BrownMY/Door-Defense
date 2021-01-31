@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0 auto;
+   
 }
 body {
     position: relative;
@@ -9,55 +11,78 @@ body {
     text-align: center;
 }
 
-/* main {
-    width: 1150px;
+main {
+    position: relative;
+    right: auto;
+    left: auto;
+    width: 1280px;
     height: 550px;
-    margin: 0 auto;
+    top: 200px;
     text-align: center;
-} */
+    /* background-color: darkred; */
+}
 
 
 h1 {
-  
-    color: #f79d43;
+    position: relative;
+    width: 700px;
+    left: auto;
+    margin-top: 15px;
+    margin-bottom: -60px;
     font-size: 50px;
-    margin: 0 auto;
-    padding: 10px;
+    color: #f79d43;
+    
+    
+    
 }
 
 button {
 
-    position: absolute;
-    font-family: 'Press Start 2P', cursive;
-    color:white;
+    position: relative;
     font-size: 20px;
-    /* margin: 0 auto; */
     padding: 15px;
     z-index: 1;
-    left: 700px;
-    top: 600px;
+    left: auto;
+    top: -400px;
+    color:#fff098;
+    font-family: 'Press Start 2P', cursive;
     background-color: orange;
-    border: 2px solid red;
+    border: 2px solid #d3771b;
     border-radius: 25px;
+    
 
 }
+#start {
+    position: relative;
+    left: auto;
+    right:auto;
+    top: -150px;
+  
+}
+
+#restart {
+    position: relative;
+    top: 500px;
+    left: auto
+}
+
 
 .gameboard {
-    margin: 0 auto;
-    margin-top:-190px;
-    margin-left: 80px;
-    background-color: red;
+    position: relative;
+    top: 150px;
+    left: auto;
+    height: 500px;
+    width: 1275px;
 }
 
 .citybg {
     
-    position: absolute;
-    margin: 0 auto;
+    position: relative;
     z-index: -2;
-    height: 700px;
-    width: 1200px;
-    top: 0;
-    left: 200px;
+    height: 780px;
+    width: 1280px;
+    top: -315px;
+    left: auto;
 }
 
 #sanitizerdiv {
@@ -67,73 +92,85 @@ button {
 }
 
 .handsani {
+    position: relative;
+    left: -130px;
+    top: 30px;
     height: 250px;
     width: 350px;
+
 }
 
 #timer {
-  position: absolute;
-  left: 170px;
-  top: 25px;
+  position: relative;
+  left: -555px;
+  top: -105px;
   font-size: 25px;
   color: #dbfffa;
  
 }
 
 .lives {
-  position: absolute;
-  right: 250px;
-  top: 100px;
+  position: relative;;
+  right: -500px;
+  top: -185px;
   font-size: 25px;
   color: #dbfffa;
     
 
 }
 #round {
+    position: relative;
     font-size: 35px;
     color: #dbfffa;
-    padding: 5px;
-    margin-top: -10px;
+    margin-top: -160px;
+    top: 55px;
+    left: ;
+    width: 500px;
+    
 }
 
 #win {
+    position: relative;
     font-size: 60px;
-    margin-top: -10px;
+    top: 200px;
     z-index: 2;
-    color: #dbfffa;
+    color: #202ffd;
 }
 
 #lose {
+    position: relative;
     font-size: 30px;
     color: white;
-    margin: 0 auto; 
-    margin-top: 200px;
+    left: auto;
+    top: 400px;
+    margin-top: -100px;
+    margin-bottom: -300px ;
     width: 700px;
 }
-/* .script {
- background-color: azure;
+.script {
+ background-color:rgba(119, 147, 187, 0.57);
  position: relative;
  bottom: 100px;
- height: 200px;
+ height: 500px;
  width: 700px;
  
-} */
+}
 
 .store {
     position: absolute;
     z-index: -1;
     height: 400px;
     width: 500px;
-    left: 795px;
-    bottom: -225px;
+    left: 670px;
+    bottom: -125px;
 } 
 
 #streetlines {
     position: absolute;
     letter-spacing: 20px;
-    top: 660px;
-    right: 210px;
-    width: 1180px;
+    top: 560px;
+    right: -5px;
+    width: 1280px;
     border-bottom: 8px dashed white;
     z-index: 3;
 }
@@ -141,20 +178,20 @@ button {
 #street {
     position: absolute;
     height: 110px;
-    width:1200px;
+    width:1280px;
     margin: 0 auto;
     z-index: -1;
-    bottom: -225px;
-    left: 200px;
+    bottom: -125px;
+    left: 0px;
     background-color: rgba(105,108,116,1);
 }
 
 .script {
-    color:black;
-    position: absolute;
+    color:rgb(255, 255, 255);
+    position: relative;
     width: 1000px;
-    top: 150px;
-    left: 280px;
+    bottom: 300px;
+    left: auto;
 }
 
 
