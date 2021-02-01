@@ -289,7 +289,7 @@ const gameObj = {
             bearImg.style.width = '80px'
             
 
-        },800)
+        },900)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -324,7 +324,7 @@ const gameObj = {
             bearImg.style.width = '80px'
             maskImg.style.height = '80px'
             maskImg.style.width = '80px'
-        },750)
+        },800)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -359,7 +359,7 @@ const gameObj = {
             bearImg.style.width = '80px'
             maskImg.style.height = '80px'
             maskImg.style.width = '80px'
-        },600)
+        },700)
         
         
         enemyBear.addEventListener('click', function clickFunc(){
@@ -455,7 +455,7 @@ const gameObj = {
             let horMove = Math.floor(Math.random()*1100)
             enemyBear.style.top = vertMove + 'px'
             enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '180px'
+            bearImg.style.height = '180pxs'
             bearImg.style.width = '180px'
         },150)
             
@@ -469,6 +469,7 @@ const gameObj = {
             clearInterval(gameObj.enemyMovement)
             loser.innerText = 'OH, NO! THEY GOT IN AND SPIT BLUE POWERADE ALL OVER THE PRODUCE :/'
             bearImg.style.display = 'none'
+            winner.style.display = 'none'
             restart.style.display = 'block'
 
             }
