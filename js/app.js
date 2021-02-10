@@ -459,7 +459,7 @@ const gameObj = {
             bearImg.style.width = '180px'
         },150)
             
-            winner.innerText = 'YOU\'RE A MASK FAIRY!'
+            winner.innerText = 'YOU SAVED THE STORE!'
           
         }, 4000)},
 
@@ -501,6 +501,13 @@ restart.addEventListener('click', function() {
 
   
 // typeFunc('Hello there!')
+
+
+module.exports = {
+    start, 
+    okButton,
+    okButton2
+}
 
 
 
