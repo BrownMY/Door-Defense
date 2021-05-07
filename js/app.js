@@ -39,7 +39,8 @@ const gameObj = {
     time: 10,
     click: false,
     lives: 3,
-
+    levelFunc: 
+    //Build out lvladvancement function for DRY code
     script: function () {
         start.style.display = 'none'
         you1P.style.display = 'block'
