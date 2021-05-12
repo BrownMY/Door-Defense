@@ -459,7 +459,7 @@ const gameObj = {
             bearImg.style.width = '180px'
         },150)
             
-            winner.innerText = 'YOU\'RE A MASK FAIRY!'
+            winner.innerText = 'YOU GOT THE MASK ON! THANKS FOR KEEPING US SAFE!'
           
         }, 4000)},
 
