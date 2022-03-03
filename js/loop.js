@@ -2,20 +2,13 @@
 const sep = '***************************'
 
 const typeFunc = function(words){
-  
-      setInterval(function(){
-          for (let i = 0; i < words.length; i++) {
-          console.log(sep)
-          //console.log(words)
-          console.log(words[i])
-          }
-         // console.log(wordsTyped)
-      }, 1500);
-     // console.log(words[i])
-  
-  //console.log(sep)
-  //console.log(words)
-  //console.log(words[i])
+      const splitString = words.split('')
+      for (let i = 0; i < splitString.length; i++) {
+         setTimeout(() => {
+            console.log(i)
+         }, 1000);
+     }
+      
 }
 
   

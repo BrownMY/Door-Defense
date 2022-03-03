@@ -15,7 +15,7 @@ const roundP = document.getElementById('round')
 const winner = document.getElementById('win')
 const loser = document.getElementById('lose')
 const saniButton = document.querySelector('#sanitizerdiv')
-const okButton = document.getElementById('ok') 
+const okButton = document.getElementById('ok')
 const getReady = document.getElementById('ready')
 const okButton2 = document.getElementById('ok2')
 const okButton3 = document.getElementById('ok3')
@@ -23,10 +23,10 @@ const okButton3 = document.getElementById('ok3')
 enemyBear.style.opacity = 0
 restart.style.display = 'none'
 start.style.display = 'block'
-you1P.style.display ='none'
-enemy1P.style.display ='none'
-you2P.style.display ='none'
-enemy2P.style.display ='none'
+you1P.style.display = 'none'
+enemy1P.style.display = 'none'
+you2P.style.display = 'none'
+enemy2P.style.display = 'none'
 directionsP.style.display = 'none'
 okButton.style.display = 'none'
 saniButton.style.display = 'none'
@@ -35,476 +35,208 @@ okButton2.style.display = 'none'
 okButton3.style.display = 'none'
 script.style.display = 'none'
 
+start.addEventListener('click', () => {
+    gameObj.round1()
+    start.style.display = 'none'
+})
 const gameObj = {
     time: 10,
     click: false,
     lives: 3,
+    currentRound: 1,
 
-    script: function () {
-        start.style.display = 'none'
-        you1P.style.display = 'block'
-        script.style.display = 'block'
-        setTimeout(function next() {
-            enemy1P.style.display = 'block'
-        },3000) 
-        setTimeout(function next() {
-            okButton.style.display = 'block'
-         },6000)
-         okButton.addEventListener('click', function next2() {
-            you1P.style.display ='none'
-            enemy1P.style.display ='none' 
-            okButton.style.display = 'none'
-            you2P.style.display = 'block'
-            setTimeout(function next() {
-                enemy2P.style.display = 'block'
-            },6000) 
-            setTimeout(function next() {
-                okButton2.style.display = 'block'
-             },9000)
-        okButton2.addEventListener('click', function(){
-            okButton2.style.display = 'none'
-            directionsP.style.display = 'block'
-            okButton3.style.display = 'block'
-            you2P.style.display = 'none'  
-            enemy2P.style.display = 'none'
-        })
-        okButton3.addEventListener('click', function(){
-            script.style.backgroundColor = 'none'
-            okButton3.style.display = 'none'
-            getReady.style.display = 'block'
-            directionsP.style.display = 'none'
-          
-            setTimeout(function next() {
-            saniButton.style.display = 'block'
-             },2000)
-        })          
-        
-        })
+    // script: function () {
+    //     start.style.display = 'none'
+    //     you1P.style.display = 'block'
+    //     script.style.display = 'block'
+    //     setTimeout(function next() {
+    //         enemy1P.style.display = 'block'
+    //     },3000) 
+    //     setTimeout(function next() {
+    //         okButton.style.display = 'block'
+    //      },6000)
+    //      okButton.addEventListener('click', function next2() {
+    //         you1P.style.display ='none'
+    //         enemy1P.style.display ='none' 
+    //         okButton.style.display = 'none'
+    //         you2P.style.display = 'block'
+    //         setTimeout(function next() {
+    //             enemy2P.style.display = 'block'
+    //         },6000) 
+    //         setTimeout(function next() {
+    //             okButton2.style.display = 'block'
+    //          },9000)
+    //     okButton2.addEventListener('click', function(){
+    //         okButton2.style.display = 'none'
+    //         directionsP.style.display = 'block'
+    //         okButton3.style.display = 'block'
+    //         you2P.style.display = 'none'  
+    //         enemy2P.style.display = 'none'
+    //     })
+    //     okButton3.addEventListener('click', function(){
+    //         script.style.backgroundColor = 'none'
+    //         okButton3.style.display = 'none'
+    //         getReady.style.display = 'block'
+    //         directionsP.style.display = 'none'
+
+    //         setTimeout(function next() {
+    //         saniButton.style.display = 'block'
+    //          },2000)
+    //     })          
+
+    //     })
+
+    // },
+    timer: function () {
 
     },
-    round1: function(){
+
+    moveEnemyOnHard: function () {
+        maskImg.classList.toggle('masknewstyle')
+
+        bearImg.style.height = '80px'
+        bearImg.style.width = '80px'
+    },
+
+    roundFunc: function (gameRound, difficulty, movementInterval, nextRound) {
+        gameObj.click = false
         gameObj.time = 10
+        roundP.innerText = gameRound
+        livesClass.innerText = "Lives: " + gameObj.lives
+        gameObj.lives >= 2 ? '' : livesClass.style.color = 'red'
+
+        const bearMovement = setInterval(function () {
+            let verticalMove = Math.floor(Math.random() * 350)
+            let horizontalMove = Math.floor(Math.random() * 1000)
+            enemyBear.style.top = verticalMove + 'px'
+            enemyBear.style.left = horizontalMove + 'px'
+
+            if (difficulty === 'hard') {
+                gameObj.moveEnemyOnHard()
+            }
+
+        }, movementInterval)
+
+        const timer = setInterval(function () {
+            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
+            gameObj.time--
+            gameObj.time > 4 ? timerP.style.color = 'white' : timerP.style.color = 'red'
+
+            if (gameObj.time === 0 && gameObj.click === false && gameObj.lives !== 0) {
+                clearInterval(timer)
+                clearInterval(bearMovement)
+                gameObj.lives--
+                livesClass.innerText = "Lives: " + gameObj.lives
+                gameObj.roundFunc(gameRound, difficulty, movementInterval)
+            } else if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
+                gameObj.gameOver()
+            }
+
+        }, 1000)
+
+        enemyBear.addEventListener('click', function clickFunc() {
+            clearInterval(bearMovement)
+            clearInterval(timer)
+            gameObj.click = true
+            maskImg.style.opacity = 1
+
+            const nextRoundDelay = setTimeout(function () {
+                maskImg.style.opacity = 0
+                nextRound()
+                enemyBear.removeEventListener('click', clickFunc)
+            }, 1000)
+            
+        })
+    },
+
+    round1: function () {
         enemyBear.style.opacity = 1
         saniButton.style.display = 'none'
-        roundP.innerText = 'Round One'
-        livesClass.innerText = "Lives: " + gameObj.lives
         restart.style.display = 'none'
         script.style.display = 'none'
 
-        
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-
-        },1150)
-
-        const timer = setInterval(function(){
-
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-             
-            if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
-                gameObj.gameOver()       
-
-            }else if (gameObj.time === 0 && gameObj.click === false && gameObj.lives !== 0) {
-                gameObj.lives--
-                livesClass.innerText = "Lives: " + gameObj.lives
-                gameObj.round1()
-                clearInterval(timer)
-                clearInterval(enemyMovement)
-
-            } else {
-                gameObj.time--
-            }
-            
-        },1000)
-
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.round2()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-            
-        })                                                               
+        gameObj.roundFunc('Round One', 'normal', 1150, gameObj.round2)
     },
 
-    round2: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Two'
-        maskImg.style.opacity = 0
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-        },1000)
-        
-
-        const timer = setInterval(function(){
-
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
-            //Timer?? console.log(`Round 2  Timer - ${gameObj.time}`)
-            //console.log('Round 1 Timer ${}')
-            if (gameObj.time === 0 && gameObj.click === false && gameObj.lives === 0) {
-                gameObj.gameOver()
-
-            }else if (gameObj.time === 0 && gameObj.click === false) {
-                gameObj.lives--
-                livesClass.innerText = "Lives: " + gameObj.lives
-                clearInterval(timer)
-                clearInterval(enemyMovement)
-                gameObj.round1()
-
-            } else {
-                gameObj.time--
-            }
-
-        },1000)
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true 
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.round3()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round2: function () {
+        gameObj.roundFunc('Round Two', 'normal', 1000, gameObj.round3)
     },
-    round3: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Three'
-        maskImg.style.opacity = 0
-        const timer = setInterval(function(){
-
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'  
-            gameObj.time--
-
-        },1000)
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-        },900)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.round4()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-            
-        })                                                               
+    round3: function () {
+        gameObj.roundFunc('Round Three', 'normal', 900, gameObj.round4)
     },
-    round4: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Four'
-        maskImg.style.opacity = 0
-
-        const timer = setInterval(function(){
-
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-            gameObj.time--
-
-        },850)
-        
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-        },1000)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.round5()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round4: function () {
+        gameObj.roundFunc('Round Four', 'normal', 850, gameObj.round5)
     },
-    round5: function(){
-        gameObj.time = 10
-        this.lives ++
-        roundP.innerText = 'Round Five'
-        maskImg.style.opacity = 0
-
-        const timer = setInterval(function(){
-            
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-            gameObj.time--
-
-        },1000)
-        
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-        },800)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.round6()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round5: function () {
+        gameObj.lives++
+        gameObj.roundFunc('Round Five', 'normal', 800, gameObj.round6)
     },
-    round6: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Six'
+    round6: function () {
         maskImg.classList.toggle('masknewstyle')
-        maskImg.style.opacity = 0
-        
-        const timer = setInterval(function(){
-            
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-            gameObj.time--
-
-        },1000)
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '80px'
-            bearImg.style.width = '80px'
-            
-
-        },900)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout(function(){
-                gameObj.round7()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+        gameObj.roundFunc('Round Six', 'hard', 900, gameObj.round7)
     },
-    round7: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Seven'
-        maskImg.classList.toggle('masknewstyle')
-        maskImg.style.opacity = 0
-        
-        const timer = setInterval(function(){
-           
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
-            gameObj.time--
-
-        },1000)
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '80px'
-            bearImg.style.width = '80px'
-            maskImg.style.height = '80px'
-            maskImg.style.width = '80px'
-        },800)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout(function(){
-                gameObj.round8()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round7: function () {
+        gameObj.roundFunc('Round Seven', 'hard', 800, gameObj.round8)
     },
-    round8: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Eight'
-        maskImg.classList.toggle('masknewstyle')
-        maskImg.style.opacity = 0
-
-        const timer = setInterval(function(){
-            
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec' 
-            gameObj.time--
-
-        },1000)
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '80px'
-            bearImg.style.width = '80px'
-            maskImg.style.height = '80px'
-            maskImg.style.width = '80px'
-        },700)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout(function(){
-                gameObj.round9()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round8: function () {
+        gameObj.roundFunc('Round Eight', 'hard', 800, gameObj.round9)
     },
-    round9: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Nine'
-        maskImg.classList.toggle('masknewstyle')
-        maskImg.style.opacity = 0
-
-        const timer = setInterval(function(){
-            
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-            gameObj.time--
-
-        },1000)
-        
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '80px'
-            bearImg.style.width = '80px'
-        },600)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout(function(){
-                gameObj.round10()     
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-        })                                                               
+    round9: function () {
+        gameObj.roundFunc('Round Nine', 'hard', 800, gameObj.round10)
     },
-    round10: function(){
-        gameObj.time = 10
-        roundP.innerText = 'Round Ten'
-        maskImg.classList.toggle('masknewstyle')
-        maskImg.style.opacity = 0
-
-        const timer = setInterval(function(){
-            
-            timerP.innerText = 'Time: ' + gameObj.time + ' sec'
-            gameObj.time--
-
-        },1000)
-
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1000)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '80px'
-            bearImg.style.width = '80px'
-            maskImg.style.height = '80px'
-            maskImg.style.width = '80px'
-            
-        },550)
-        
-        
-        enemyBear.addEventListener('click', function clickFunc(){
-            clearInterval(enemyMovement)
-            clearInterval(timer)
-            gameObj.click = true
-            maskImg.style.opacity = 1
-            const maskDelay = setTimeout( function(){
-                gameObj.win()   
-                enemyBear.removeEventListener('click', clickFunc)}, 1500)
-            
-        })
-                                                                     
-    
+    round10: function () {
+        gameObj.roundFunc('Last Round!', 'hard', 800, gameObj.win)
     },
     win: function () {
-        setTimeout( function() {
+        setTimeout(function () {
+            roundP.style.display = 'none'
+            timerP.innerText = 'Time: 🎊'
+            maskImg.classList.toggle('mask')
 
-        timerP.innerText = 'Time: 🎊'
-        maskImg.classList.toggle('mask')
-    
-        const enemyMovement = setInterval(function(){
-            let vertMove = Math.floor(Math.random()*350)
-            let horMove = Math.floor(Math.random()*1100)
-            enemyBear.style.top = vertMove + 'px'
-            enemyBear.style.left = horMove + 'px'
-            bearImg.style.height = '180pxs'
-            bearImg.style.width = '180px'
-        },150)
-            
+            const enemyMovement = setInterval(function () {
+                let vertMove = Math.floor(Math.random() * 350)
+                let horMove = Math.floor(Math.random() * 1100)
+                enemyBear.style.top = vertMove + 'px'
+                enemyBear.style.left = horMove + 'px'
+                bearImg.style.height = '180pxs'
+                bearImg.style.width = '180px'
+            }, 150)
+
             winner.innerText = 'YOU SAVED THE STORE!'
-          
-        }, 4000)},
+
+        }, 4000)
+    },
 
     gameOver: function () {
 
-            clearInterval(timer)
-            clearInterval(gameObj.enemyMovement)
-            loser.innerText = 'OH, NO! THEY GOT IN AND SPIT BLUE POWERADE ALL OVER THE PRODUCE :/'
-            bearImg.style.display = 'none'
-            winner.style.display = 'none'
-            restart.style.display = 'block'
+        clearInterval(gameObj.time)
+        clearInterval(gameObj.enemyMovement)
+        loser.innerText = 'OH, NO! THEY GOT IN AND SPIT BLUE POWERADE ALL OVER THE PRODUCE :/'
+        bearImg.style.display = 'none'
+        roundP.style.display = 'none'
+        restart.style.display = 'block'
 
-            }
-        }
-    
-    
+    }
+}
+
+
 
 start.addEventListener('click', gameObj.script)
-saniButton.addEventListener('click', function() {
+saniButton.addEventListener('click', function () {
     getReady.style.display = 'none'
     saniButton.style.display = 'none'
     gameObj.round1()
 })
-restart.addEventListener('click', function() {
+restart.addEventListener('click', function () {
     restart.style.display = 'none'
-    gameObj.script})
+    gameObj.script
+})
 
 
-
-// const typeFunc = function(words){
-//     const wordsTyped = words.split('')
-
-// for (let i = 0; i < wordsTyped.length; i++) {
-//       setInterval(function(){
-//           console.log(wordsTyped[i])
-//       }, 100);
-//   }
-// }
-
-  
-// typeFunc('Hello there!')
 
 
 module.exports = {
-    start, 
+    start,
     okButton,
     okButton2
 }
