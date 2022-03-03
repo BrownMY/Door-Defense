@@ -148,7 +148,7 @@ button {
     width: 700px;
 }
 .script {
- background-color:rgba(119, 147, 187, 0.57);
+ background-color:rgba(119, 147, 187, 0.67);
  position: relative;
  bottom: 100px;
  height: 500px;
@@ -225,8 +225,8 @@ button {
 .masknewstyle {
     margin: 0 auto;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 16px;
+    left: 50px;
     width: 70px;
     height: 70px;
     opacity: 0;
