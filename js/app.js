@@ -35,59 +35,53 @@ okButton2.style.display = 'none'
 okButton3.style.display = 'none'
 script.style.display = 'none'
 
-start.addEventListener('click', () => {
-    gameObj.round1()
-    start.style.display = 'none'
-})
+
 const gameObj = {
     time: 10,
     click: false,
     lives: 3,
     currentRound: 1,
 
-    // script: function () {
-    //     start.style.display = 'none'
-    //     you1P.style.display = 'block'
-    //     script.style.display = 'block'
-    //     setTimeout(function next() {
-    //         enemy1P.style.display = 'block'
-    //     },3000) 
-    //     setTimeout(function next() {
-    //         okButton.style.display = 'block'
-    //      },6000)
-    //      okButton.addEventListener('click', function next2() {
-    //         you1P.style.display ='none'
-    //         enemy1P.style.display ='none' 
-    //         okButton.style.display = 'none'
-    //         you2P.style.display = 'block'
-    //         setTimeout(function next() {
-    //             enemy2P.style.display = 'block'
-    //         },6000) 
-    //         setTimeout(function next() {
-    //             okButton2.style.display = 'block'
-    //          },9000)
-    //     okButton2.addEventListener('click', function(){
-    //         okButton2.style.display = 'none'
-    //         directionsP.style.display = 'block'
-    //         okButton3.style.display = 'block'
-    //         you2P.style.display = 'none'  
-    //         enemy2P.style.display = 'none'
-    //     })
-    //     okButton3.addEventListener('click', function(){
-    //         script.style.backgroundColor = 'none'
-    //         okButton3.style.display = 'none'
-    //         getReady.style.display = 'block'
-    //         directionsP.style.display = 'none'
+    script: function () {
+        start.style.display = 'none'
+        you1P.style.display = 'block'
+        script.style.display = 'block'
+        setTimeout(function next() {
+            enemy1P.style.display = 'block'
+        },3000) 
+        setTimeout(function next() {
+            okButton.style.display = 'block'
+         },6000)
+         okButton.addEventListener('click', function next2() {
+            you1P.style.display ='none'
+            enemy1P.style.display ='none' 
+            okButton.style.display = 'none'
+            you2P.style.display = 'block'
+            setTimeout(function next() {
+                enemy2P.style.display = 'block'
+            },6000) 
+            setTimeout(function next() {
+                okButton2.style.display = 'block'
+             },9000)
+        okButton2.addEventListener('click', function(){
+            okButton2.style.display = 'none'
+            directionsP.style.display = 'block'
+            okButton3.style.display = 'block'
+            you2P.style.display = 'none'  
+            enemy2P.style.display = 'none'
+        })
+        okButton3.addEventListener('click', function(){
+            script.style.backgroundColor = 'none'
+            okButton3.style.display = 'none'
+            getReady.style.display = 'block'
+            directionsP.style.display = 'none'
 
-    //         setTimeout(function next() {
-    //         saniButton.style.display = 'block'
-    //          },2000)
-    //     })          
+            setTimeout(function next() {
+            saniButton.style.display = 'block'
+             },2000)
+        })          
 
-    //     })
-
-    // },
-    timer: function () {
+        })
 
     },
 
@@ -145,7 +139,7 @@ const gameObj = {
                 nextRound()
                 enemyBear.removeEventListener('click', clickFunc)
             }, 1000)
-            
+
         })
     },
 
